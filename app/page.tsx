@@ -1,17 +1,12 @@
-const Header = () => {
-  return (
-    <header className="border-gray">
-      <h1 className="text-sky-900 text-5xl">Drug Analyse AI</h1>
-    </header>
-  );
-};
+import Link from "next/link";
+import Header from "@/app/components/ui/header/Header";
 
 const Home: React.FC = () => {
   // code
 
   return (
-    <main className="min-w-svh min-h-svh border-2 bg-sky-200">
-      <div className="border-2 border-slate-800 flex flex-col items-center">
+    <main className="min-w-svh min-h-svh bg-sky-200">
+      <div className="border-b border-sky-300 flex flex-col items-center min-h-36">
         <Header />
       </div>
     </main>
