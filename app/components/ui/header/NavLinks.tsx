@@ -20,7 +20,7 @@ const NavLinks: React.FC = () => {
             href={link.href}
             className={`${
               pathname === link.href ? "border-b border-sky-600" : null
-            } text-2xl text-sky-900`}
+            } text-xl text-sky-300`}
           >
             {link.label}
           </Link>
