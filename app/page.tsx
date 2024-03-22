@@ -6,8 +6,8 @@ const Home: React.FC = () => {
 
   return (
     <main className="min-w-svh min-h-svh bg-sky-200">
-      <div className="border-b border-sky-300 flex flex-col items-center min-h-36">
-        <Header />
+      <div className=" flex flex-col items-center">
+        <h3 className="text-3xl">Home Page</h3>
       </div>
     </main>
   );
