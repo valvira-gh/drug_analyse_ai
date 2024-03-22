@@ -1,20 +1,15 @@
+"use client";
 // Käytetään uutta tapaa käsitellä form-elementtejä käyttämällä
 // <form action> ominaisuutta ja hyödynnetään formData-objektia.
 // Reactissa <form>-elementti on aina client-komponentti, mutta
 // käytämme "use server" merkintää ja näin voimme luoda asynkronisen
 // fetch-pyynnön palvelimelle käyttämällä formData.get()-metodia.
+import { FDA_API_KEY } from "@/app/components/lib/openFDA_API";
+import { searchDrugs } from "../components/lib/actions";
+
+const KEYS = FDA_API_KEY;
 
 const SearchForm: React.FC = () => {
-  async function searchDrugs(formData: FormData) {
-    "use server";
-    const searchQuery = formData.get("search");
-    const response = await fetch(
-      `https://jsonplaceholder.typicode.com/${searchQuery}`
-    );
-    const data = await response.json();
-    console.log(data);
-  }
-
   return (
     <form
       action={searchDrugs}
