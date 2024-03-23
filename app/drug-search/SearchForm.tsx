@@ -1,18 +1,35 @@
 "use client";
+import { FDA_API_KEY } from "@/app/components/lib/openFDA_API";
+import { searchDrugs } from "@/app/components/lib/actions";
+import { SearchContext } from "@/app/components/lib/contexts/SearchContext";
+import { useContext } from "react";
+
 // Käytetään uutta tapaa käsitellä form-elementtejä käyttämällä
 // <form action> ominaisuutta ja hyödynnetään formData-objektia.
 // Reactissa <form>-elementti on aina client-komponentti, mutta
 // käytämme "use server" merkintää ja näin voimme luoda asynkronisen
 // fetch-pyynnön palvelimelle käyttämällä formData.get()-metodia.
-import { FDA_API_KEY } from "@/app/components/lib/openFDA_API";
-import { searchDrugs } from "../components/lib/actions";
-
 const KEYS = FDA_API_KEY;
 
 const SearchForm: React.FC = () => {
+  const context = useContext(SearchContext);
+
+  if (!context) {
+    throw new Error(`SearchForm must be used within a SearchProvider.`);
+  }
+
+  const { searchResults, setSearchResults } = context;
+
+  const handleSearch = (formData: FormData) => {
+    searchDrugs(formData, setSearchResults);
+  };
+
+  console.log(`Response returned data:`);
+  console.log(searchResults);
+
   return (
     <form
-      action={searchDrugs}
+      action={handleSearch}
       className="rounded-md flex flex-col px-6 py-4 m-4"
     >
       <input

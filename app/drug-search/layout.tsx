@@ -1,5 +1,6 @@
 import Sidebar from "@/app/components/ui/Sidebar";
 import { Ubuntu } from "next/font/google";
+import SearchProvider from "@/app/components/lib/contexts/SearchProvider";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
@@ -12,10 +13,12 @@ const SearchLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <div className={`ubuntu.className flex`}>
-      <Sidebar />
-      <main className="flex-grow p-4">{children}</main>
-    </div>
+    <SearchProvider>
+      <div className={`ubuntu.className flex`}>
+        <Sidebar />
+        <main className="flex-grow p-4">{children}</main>
+      </div>
+    </SearchProvider>
   );
 };
 

@@ -1,4 +1,4 @@
-export async function searchDrugs(formData: FormData) {
+export async function searchDrugs(formData: FormData, setSearchResults: React.Dispatch<React.SetStateAction<any>>) {
 
     const searchQuery = formData.get("search");
 
@@ -6,8 +6,6 @@ export async function searchDrugs(formData: FormData) {
       `https://api.fda.gov/drug/label.json?search=${searchQuery}&limit=1`
     );
 
-    const data = await response.json();
-    console.log(data);
-    return data;
-
+  const data = await response.json();
+    setSearchResults(data)
   }
