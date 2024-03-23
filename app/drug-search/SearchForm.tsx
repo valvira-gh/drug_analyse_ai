@@ -18,10 +18,11 @@ const SearchForm: React.FC = () => {
     throw new Error(`SearchForm must be used within a SearchProvider.`);
   }
 
-  const { searchResults, setSearchResults } = context;
+  const { searchResults, setSearchResults, setSearchPerformed } = context;
 
   const handleSearch = (formData: FormData) => {
     searchDrugs(formData, setSearchResults);
+    setSearchPerformed(true);
   };
 
   console.log(`Response returned data:`);

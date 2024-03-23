@@ -4,9 +4,17 @@ import { SearchContext } from "./SearchContext";
 
 const SearchProvider = ({ children }: any) => {
   const [searchResults, setSearchResults] = useState([""]);
+  const [searchPerformed, setSearchPerformed] = useState(false);
 
   return (
-    <SearchContext.Provider value={{ searchResults, setSearchResults }}>
+    <SearchContext.Provider
+      value={{
+        searchResults,
+        setSearchResults,
+        searchPerformed,
+        setSearchPerformed,
+      }}
+    >
       {children}
     </SearchContext.Provider>
   );
