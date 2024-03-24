@@ -3,7 +3,7 @@ import { useState } from "react";
 import { SearchContext } from "./SearchContext";
 
 const SearchProvider = ({ children }: any) => {
-  const [searchResults, setSearchResults] = useState([""]);
+  const [searchResults, setSearchResults] = useState(undefined);
   const [searchPerformed, setSearchPerformed] = useState(false);
 
   return (

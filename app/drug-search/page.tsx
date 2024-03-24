@@ -10,12 +10,21 @@ const DisplayResults = ({ searchResults }: any) => {
   }
 
   return (
-    <div className="border">
+    <div className="flex">
       {searchResults.results.map((result, index) => (
-        <div key={index}>
-          <h2>{result.product_name}</h2>
-          <p>{result.description}</p>
-          {/* Lisää tähän muita tietoja, joita haluat näyttää */}
+        <div
+          className="flex flex-col items-center w-1/2"
+          key={result.openfda.spl_set_id[0]}
+        >
+          <h2 className="text-2xl m-2">{result.openfda.brand_name[0]}</h2>
+          <h3 className="text-xl p-0.5">({result.openfda.generic_name[0]})</h3>
+          <p className="p-2 m-1">{result.description}</p>
+          <p className="font-sans">
+            Manufacter:{" "}
+            <span className="font-bold font-mono ml-1">
+              {result.openfda.manufacturer_name[0]}
+            </span>
+          </p>
         </div>
       ))}
     </div>
@@ -32,7 +41,7 @@ const DrugSearchPage: React.FC = () => {
   const { searchResults, searchPerformed } = resultContext;
 
   return (
-    <section className="flex flex-col items-center text-sky-900 m-4">
+    <section className="flex flex-col items-center justify-center  text-sky-900 ml-36 mt-6 w-full p-2">
       <DisplayResults searchResults={searchResults} />
     </section>
   );

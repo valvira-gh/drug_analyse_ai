@@ -3,9 +3,11 @@ export async function searchDrugs(formData: FormData, setSearchResults: React.Di
     const searchQuery = formData.get("search");
 
     const response = await fetch(
-      `https://api.fda.gov/drug/label.json?search=${searchQuery}&limit=1`
+      `https://api.fda.gov/drug/label.json?search=openfda.brand_name:${searchQuery}`
     );
 
+
   const data = await response.json();
-    setSearchResults(data)
+  setSearchResults(data)
+  console.log(data.results[0].openfda)
   }

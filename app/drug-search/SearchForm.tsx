@@ -25,9 +25,6 @@ const SearchForm: React.FC = () => {
     setSearchPerformed(true);
   };
 
-  console.log(`Response returned data:`);
-  console.log(searchResults);
-
   return (
     <form
       action={handleSearch}
