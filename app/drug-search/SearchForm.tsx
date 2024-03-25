@@ -28,12 +28,12 @@ const SearchForm: React.FC = () => {
   return (
     <form
       action={handleSearch}
-      className="rounded-md flex flex-col px-6 py-4 m-4"
+      className="rounded-md border flex flex-col px-6 py-4 m-4"
     >
       <input
         type="text"
         name="search"
-        className="text-lg text-sky-900 p-2 mt-2 border-2 border-sky-500 "
+        className="text-lg text-sky-900 p-2 mt-2 border-2 rounded-sm border-sky-500 "
       />
       <button
         type="submit"

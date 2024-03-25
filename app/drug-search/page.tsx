@@ -4,14 +4,14 @@ import SearchForm from "./SearchForm";
 import { useContext, useState } from "react";
 import { SearchContext } from "@/app/components/lib/contexts/SearchContext";
 
-const DisplayResults = ({ searchResults }: any) => {
+const DisplayResults = ({ searchResults }) => {
   if (!searchResults || !searchResults.results) {
     return <div>Ei tuloksia.</div>;
   }
 
   return (
     <div className="flex">
-      {searchResults.results.map((result, index) => (
+      {searchResults.results.map((result: () => void) => (
         <div
           className="flex flex-col items-center w-1/2"
           key={result.openfda.spl_set_id[0]}
@@ -41,7 +41,7 @@ const DrugSearchPage: React.FC = () => {
   const { searchResults, searchPerformed } = resultContext;
 
   return (
-    <section className="flex flex-col items-center justify-center  text-sky-900 ml-36 mt-6 w-full p-2">
+    <section className="flex flex-col items-center justify-center  text-sky-900 ml-24 mt-6 w-full p-2">
       <DisplayResults searchResults={searchResults} />
     </section>
   );
