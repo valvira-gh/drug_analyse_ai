@@ -17,11 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`inter.className`}>
-        <div className="bg-sky-200 min-h-svh">
-          <Header />
-          {children}
-        </div>
+      <body className={`inter.className bg-sky-200 h-svh m-0 `}>
+        <Header />
+        {children}
       </body>
     </html>
   );

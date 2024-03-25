@@ -14,7 +14,9 @@ const SearchLayout = ({
 }>) => {
   return (
     <SearchProvider>
-      <div className={`ubuntu.className md:flex sm:flex-col md:flex-row `}>
+      <div
+        className={`ubuntu.className sm:flex sm:flex-col md:flex-row md:h-full`}
+      >
         <Sidebar />
         <main className="flex-grow p-4">{children}</main>
       </div>

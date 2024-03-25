@@ -13,14 +13,14 @@ const NavLinks: React.FC = () => {
   const pathname = usePathname();
 
   return (
-    <ul className="flex justify-between mt-2">
+    <ul className="flex sm:flex-col md:flex-row sm:items-center sm:p-1 justify-between mt-2 sm:mt-0">
       {links.map((link) => (
         <li key={link.id}>
           <Link
             href={link.href}
             className={`${
               pathname === link.href ? "border-b border-sky-600" : null
-            } text-xl text-sky-300`}
+            } sm:text-xl md:text-2xl lg:text-3xl sm:m-1 text-sky-300`}
           >
             {link.label}
           </Link>

@@ -13,7 +13,7 @@ const DisplayResults = ({ searchResults }) => {
     <div className="flex">
       {searchResults.results.map((result: () => void) => (
         <div
-          className="flex flex-col items-center w-1/2"
+          className="flex flex-col items-center border border-sky-900"
           key={result.openfda.spl_set_id[0]}
         >
           <h2 className="text-2xl m-2">{result.openfda.brand_name[0]}</h2>
