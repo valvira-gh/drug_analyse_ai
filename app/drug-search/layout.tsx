@@ -1,4 +1,4 @@
-import Sidebar from "@/app/components/ui/Sidebar";
+import Sidebar from "@/app/drug-search/Sidebar";
 import { Ubuntu } from "next/font/google";
 import SearchProvider from "@/app/components/lib/contexts/SearchProvider";
 
@@ -15,10 +15,13 @@ const SearchLayout = ({
   return (
     <SearchProvider>
       <div
-        className={`ubuntu.className sm:flex sm:flex-col md:flex-row md:h-full`}
+        className={`ubuntu.className flex flex-col items-center laptop:flex-row`}
       >
-        <Sidebar />
-        <main className="flex-grow p-4">{children}</main>
+        <aside className="bg-sky-300 w-full flex justify-center">
+          <Sidebar />
+        </aside>
+
+        <main className="grow-2">{children}</main>
       </div>
     </SearchProvider>
   );

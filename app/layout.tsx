@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Ubuntu, Poppins } from "next/font/google";
 import "./globals.css";
-import Header from "./components/ui/header/Header";
+import Header from "./Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,9 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`inter.className bg-sky-200 h-svh m-0 `}>
+      <body className={`inter.className bg-sky-200`}>
         <Header />
-        {children}
+        <main className="border-2 border-sky-900 min-h-svh">{children}</main>
       </body>
     </html>
   );
