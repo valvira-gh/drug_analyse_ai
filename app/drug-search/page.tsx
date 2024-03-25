@@ -15,7 +15,7 @@ const DisplayResults = ({ searchResults }) => {
           className="flex flex-col items-center"
           key={result.openfda.spl_set_id[0]}
         >
-          <h2 className="text-2xl m-2">{result.openfda.brand_name[0]}</h2>
+          <h2 className="text-3xl m-2">{result.openfda.brand_name[0]}</h2>
           <h3 className="text-xl p-0.5">({result.openfda.generic_name[0]})</h3>
           <p className="p-2 m-1">{result.description}</p>
           <p className="font-sans">
@@ -40,7 +40,7 @@ const DrugSearchPage: React.FC = () => {
   const { searchResults, searchPerformed } = resultContext;
 
   return (
-    <section className="flex flex-col items-center justify-center text-sky-900 w-full p-2">
+    <section className="flex flex-col items-center justify-center text-sky-900 m-4 w-full p-2">
       <DisplayResults searchResults={searchResults} />
     </section>
   );

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Ubuntu, Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "./Header";
+import NavLinks from "./NavLinks";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,8 +19,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`inter.className bg-sky-200`}>
-        <Header />
-        <main className="border-2 border-sky-900 min-h-svh">{children}</main>
+        <header className="bg-sky-700 flex justify-between h-44 laptop:flex-col laptop:items-center laptop:h-52">
+          <Header />
+          <nav className="h-full ">
+            <NavLinks />
+          </nav>
+        </header>
+        <main className="min-h-svh">{children}</main>
       </body>
     </html>
   );

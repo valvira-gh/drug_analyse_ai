@@ -17,11 +17,13 @@ const SearchLayout = ({
       <div
         className={`ubuntu.className flex flex-col items-center laptop:flex-row`}
       >
-        <aside className="bg-sky-300 w-full laptop:w-max laptop:h-screen flex justify-center">
+        <aside className="bg-sky-300 w-full flex items-center  laptop:w-max laptop:h-screen laptop:flex-col laptop:items-center">
           <Sidebar />
         </aside>
 
-        <main className="grow-2">{children}</main>
+        <main className="bg-sky-200 h-screen w-screen flex-wrap p-8">
+          {children}
+        </main>
       </div>
     </SearchProvider>
   );
