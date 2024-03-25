@@ -1,10 +1,19 @@
 import type { Metadata } from "next";
 import { Inter, Ubuntu, Poppins } from "next/font/google";
 import "./globals.css";
-import Header from "./Header";
-import NavLinks from "./NavLinks";
+import Header from "@/app/components/ui/header/Header";
+import NavLinks from "@/app/components/ui/header/NavLinks";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "600", "700"],
+});
 
 const inter = Inter({ subsets: ["latin"] });
+const ubuntu = Ubuntu({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,10 +27,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`inter.className bg-sky-200`}>
-        <header className="bg-sky-700 flex justify-between h-44 laptop:flex-col laptop:items-center laptop:h-52">
+      <body className={`bg-sky-200`}>
+        <header className="bg-sky-700 flex justify-between h-56 laptop:flex-col laptop:items-center laptop:h-56 laptop:w-screen">
           <Header />
-          <nav className="h-full ">
+          <nav className="h-full w-full text-center flex justify-center">
             <NavLinks />
           </nav>
         </header>

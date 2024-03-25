@@ -1,7 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { useState } from "react";
 
 export const links = [
   { id: 1, label: "Home", href: "/" },
@@ -13,15 +12,15 @@ const NavLinks: React.FC = () => {
   const pathname = usePathname();
 
   return (
-    <ul className="flex flex-col justify-evenly items-center h-4/5 mt-4 laptop:flex-row">
+    <ul className="flex flex-col justify-evenly items-center h-4/5 mt-4 laptop:flex-row laptop:justify-center laptop:w-96 p-4">
       {links.map((link) => (
         <li key={link.id}>
           <Link
             href={link.href}
-            className={`m-2 text-xl tablet:text-2xl laptop:text-3xl text-sky-200
+            className={`m-2 text-xl tablet:text-2xl laptop:text-3xl text-sky-200 font-mono
             ${
               pathname === link.href
-                ? "border-b border-sky-300 text-sky-400 "
+                ? "border-b border-sky-700 text-sky-400 "
                 : null
             } `}
           >

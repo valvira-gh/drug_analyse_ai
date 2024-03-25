@@ -17,7 +17,7 @@ const SearchLayout = ({
       <div
         className={`ubuntu.className flex flex-col items-center laptop:flex-row`}
       >
-        <aside className="bg-sky-300 w-full flex items-center  laptop:w-max laptop:h-screen laptop:flex-col laptop:items-center">
+        <aside className="bg-sky-300 w-full flex items-center justify-evenly laptop:justify-start laptop:w-max laptop:h-screen laptop:flex-col laptop:items-center">
           <Sidebar />
         </aside>
 

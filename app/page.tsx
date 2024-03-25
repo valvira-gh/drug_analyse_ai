@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Header from "@/app/Header";
+import Header from "@/app/components/ui/header/Header";
 
 const Home: React.FC = () => {
   // code
