@@ -10,5 +10,5 @@ export async function searchDrugs(formData: FormData, setSearchResults: React.Di
 
   const data = await response.json();
   setSearchResults(data)
-  console.log(data.results[0].abuse[0])
+  console.log(data.results[0].openfda)
   }

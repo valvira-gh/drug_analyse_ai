@@ -2,8 +2,12 @@
 import React from "react";
 import { useContext, useState } from "react";
 import { SearchContext } from "@/app/components/lib/contexts/SearchContext";
+import { SearchResultTypes } from "@/app/components/lib/contexts/SearchContext";
 
-const DisplayResults = ({ searchResults }) => {
+const DisplayResults: React.FC<{
+  searchResults: { results: SearchResultTypes[] } | undefined;
+  selectedFocus: { abuse: boolean; description: boolean };
+}> = ({ searchResults, selectedFocus }) => {
   if (!searchResults || !searchResults.results) {
     return <div>Ei tuloksia.</div>;
   }
@@ -13,19 +17,15 @@ const DisplayResults = ({ searchResults }) => {
       {searchResults.results.map((result) => (
         <div
           className="flex flex-col items-center"
-          key={result.openfda.spl_set_id[0]}
-        >
-          <p>{result.abuse[0]}</p>
-        </div>
-      ))}
-      {/* {searchResults.results.map((result: () => void) => (
-        <div
-          className="flex flex-col items-center"
-          key={result.openfda.spl_set_id[0]}
+          key={result.openfda.spl_id[0]}
         >
           <h2 className="text-3xl m-2">{result.openfda.brand_name[0]}</h2>
           <h3 className="text-xl p-0.5">({result.openfda.generic_name[0]})</h3>
-          <p className="p-2 m-1">{result.description}</p>
+          {selectedFocus.description && (
+            <p className="p-2 m-1">{result.description}</p>
+          )}
+          {selectedFocus.abuse && <p className="p-2 m-1">{result.abuse[0]}</p>}
+
           <p className="font-sans">
             Manufacter:{" "}
             <span className="font-bold font-mono ml-1">
@@ -33,7 +33,7 @@ const DisplayResults = ({ searchResults }) => {
             </span>
           </p>
         </div>
-      ))} */}
+      ))}
     </div>
   );
 };
@@ -45,11 +45,14 @@ const DrugSearchPage: React.FC = () => {
     throw new Error(`SearchContext must be used with ContextProvider!`);
   }
 
-  const { searchResults, searchPerformed } = resultContext;
+  const { searchResults, searchPerformed, selectedFocus } = resultContext;
 
   return (
     <section className="flex flex-col items-center justify-center text-sky-900 m-4 w-full p-2">
-      <DisplayResults searchResults={searchResults} />
+      <DisplayResults
+        searchResults={searchResults}
+        selectedFocus={selectedFocus}
+      />
     </section>
   );
 };

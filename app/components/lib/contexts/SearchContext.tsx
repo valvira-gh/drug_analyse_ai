@@ -2,9 +2,23 @@
 import { SetStateAction, useState } from "react";
 import React, { createContext } from "react";
 
+export interface SearchResultTypes {
+  openfda: {
+    spl_id: string[];
+    brand_name: string[];
+    generic_name: string[];
+    description: string[];
+    manufacturer_name: string[];
+  };
+  abuse: string[];
+  description: string[];
+}
+
 type SearchContextType = {
-  searchResults: Promise<string[]> | undefined;
-  setSearchResults: React.Dispatch<React.SetStateAction<string[] | undefined>>;
+  searchResults: { results: SearchResultTypes[] } | undefined;
+  setSearchResults: React.Dispatch<
+    React.SetStateAction<Promise<string[] | undefined>>
+  >;
   searchPerformed: boolean;
   setSearchPerformed: React.Dispatch<React.SetStateAction<boolean>>;
   selectedFocus: {
@@ -27,8 +41,8 @@ const SearchProvider = ({ children }: any) => {
   const [searchResults, setSearchResults] = useState(undefined);
   const [searchPerformed, setSearchPerformed] = useState(false);
   const [selectedFocus, setSelectedFocus] = useState({
-    abuse: false,
-    description: false,
+    abuse: true,
+    description: true,
   });
 
   return (
