@@ -10,7 +10,15 @@ const DisplayResults = ({ searchResults }) => {
 
   return (
     <div className="flex ">
-      {searchResults.results.map((result: () => void) => (
+      {searchResults.results.map((result) => (
+        <div
+          className="flex flex-col items-center"
+          key={result.openfda.spl_set_id[0]}
+        >
+          <p>{result.abuse[0]}</p>
+        </div>
+      ))}
+      {/* {searchResults.results.map((result: () => void) => (
         <div
           className="flex flex-col items-center"
           key={result.openfda.spl_set_id[0]}
@@ -25,7 +33,7 @@ const DisplayResults = ({ searchResults }) => {
             </span>
           </p>
         </div>
-      ))}
+      ))} */}
     </div>
   );
 };
