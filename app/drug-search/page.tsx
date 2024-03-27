@@ -3,6 +3,7 @@
 import React, { useContext } from "react";
 import { SearchContext } from "@/app/components/lib/contexts/SearchContext";
 import { SearchContextTypes } from "../components/lib/types";
+import cutTitle from "./cutTitle";
 
 const DisplayResults: React.FC<SearchContextTypes> = ({
   searchResults,
@@ -21,6 +22,10 @@ const DisplayResults: React.FC<SearchContextTypes> = ({
         >
           <h2 className="text-3xl m-2">{result.openfda.brand_name[0]}</h2>
           <h3 className="text-xl p-0.5">({result.openfda.generic_name[0]})</h3>
+
+          <div className="">
+            <p>{result.indications_and_usage[0]}</p>
+          </div>
 
           <p className="font-sans">
             Manufacter:{" "}
