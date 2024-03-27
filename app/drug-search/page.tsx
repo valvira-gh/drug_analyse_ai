@@ -3,7 +3,7 @@
 import React, { useContext } from "react";
 import { SearchContext } from "@/app/components/lib/contexts/SearchContext";
 import { SearchContextTypes } from "../components/lib/types";
-import cutTitle from "./cutTitle";
+import Accordion from "./Accordion";
 
 const DisplayResults: React.FC<SearchContextTypes> = ({
   searchResults,
@@ -24,7 +24,18 @@ const DisplayResults: React.FC<SearchContextTypes> = ({
           <h3 className="text-xl p-0.5">({result.openfda.generic_name[0]})</h3>
 
           <div className="">
-            <p>{result.indications_and_usage[0]}</p>
+            <Accordion
+              title="1. Indications and Usage"
+              content={result.indications_and_usage[0]}
+            />
+            <Accordion
+              title="2. Dosage and Administration"
+              content={result.dosage_and_administration[0]}
+            />
+            <Accordion
+              title="3. Dosage Forms and Strengths"
+              content={result.dosage_forms_and_strengths[0]}
+            />
           </div>
 
           <p className="font-sans">

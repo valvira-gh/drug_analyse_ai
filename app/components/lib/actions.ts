@@ -10,25 +10,25 @@ export async function searchDrugs(formData: FormData, setSearchResults: React.Di
 
   const data = await response.json();
   setSearchResults(data)
-  // console.log(data.results)
+  console.log(data.results)
 
 
   // Käsitellään datasta otsikot erillisiksi
 
-const splitTextIntoTitleAndText = (text) => {
-  const match = text.match(/([A-Z\s]+)([a-z].+)/);
-  if (match) {
-    const title = match[1].trim();
-    const rest = match[2].trim();
-    return { title, rest };
-  }
-  return { title: text, rest: "" };
-};
+// const splitTextIntoTitleAndText = (text) => {
+//   const match = text.match(/([A-Z\s]+)([a-z].+)/);
+//   if (match) {
+//     const title = match[1].trim();
+//     const rest = match[2].trim();
+//     return { title, rest };
+//   }
+//   return { title: text, rest: "" };
+// };
 
 
-const processTexts = (texts) => {
-  return texts.map(splitTextIntoTitleAndText);
-}
+// const processTexts = (texts) => {
+//   return texts.map(splitTextIntoTitleAndText);
+// }
 
 // // Käsitellään jokainen kappale jokaisesta data.results objektista
 // const processedResults = data.results.map(result => {

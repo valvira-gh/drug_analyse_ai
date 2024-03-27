@@ -7,6 +7,9 @@ export interface SearchResultTypes {
     description: string[];
     manufacturer_name: string[];
   };
+  indications_and_usage: string[];
+  dosage_and_administration: string[];
+  dosage_forms_and_strengths: string[];
   abuse: string[];
   description: string[];
 }
