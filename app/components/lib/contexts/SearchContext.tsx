@@ -1,48 +1,27 @@
+// SearchContext.tsx:
 "use client";
-import { SetStateAction, useState } from "react";
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
+import {
+  SearchContextTypes,
+  SearchResultTypes,
+  SelectedFocusTypes,
+} from "../types";
 
-export interface SearchResultTypes {
-  openfda: {
-    spl_id: string[];
-    brand_name: string[];
-    generic_name: string[];
-    description: string[];
-    manufacturer_name: string[];
-  };
-  abuse: string[];
-  description: string[];
-}
-
-type SearchContextType = {
-  searchResults: { results: SearchResultTypes[] } | undefined;
-  setSearchResults: React.Dispatch<
-    React.SetStateAction<Promise<string[] | undefined>>
-  >;
-  searchPerformed: boolean;
-  setSearchPerformed: React.Dispatch<React.SetStateAction<boolean>>;
-  selectedFocus: {
-    abuse: boolean;
-    description: boolean;
-  };
-  setSelectedFocus: React.Dispatch<
-    SetStateAction<{
-      abuse: boolean;
-      description: boolean;
-    }>
-  >;
-};
-
-export const SearchContext = React.createContext<SearchContextType | undefined>(
+export const SearchContext = createContext<SearchContextTypes | undefined>(
   undefined
 );
 
-const SearchProvider = ({ children }: any) => {
-  const [searchResults, setSearchResults] = useState(undefined);
-  const [searchPerformed, setSearchPerformed] = useState(false);
-  const [selectedFocus, setSelectedFocus] = useState({
-    abuse: true,
-    description: true,
+const SearchProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  const [searchResults, setSearchResults] = useState<
+    { results: SearchResultTypes[] } | undefined
+  >(undefined);
+
+  const [searchPerformed, setSearchPerformed] = useState<boolean>(false);
+  const [selectedFocus, setSelectedFocus] = useState<SelectedFocusTypes>({
+    abuse: false,
+    description: false,
   });
 
   return (
