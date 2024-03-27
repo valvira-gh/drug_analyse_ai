@@ -36,6 +36,22 @@ const DisplayResults: React.FC<SearchContextTypes> = ({
               title="3. Dosage Forms and Strengths"
               content={result.dosage_forms_and_strengths[0]}
             />
+            <Accordion
+              title="6a. Adverse Reactions"
+              content={result.adverse_reactions[0]}
+            />
+            {/* <Accordion
+              title="6b. Adverse Reactions (table)"
+              content={result.adverse_reactions_table[0]}
+            /> */}
+            {/* <Accordion
+              title="12. Clinical Pharmalogy"
+              content={result.clinical_pharmalogy[0]}
+            /> */}
+            <Accordion
+              title="Boxed Warning"
+              content={result.boxed_warning[0]}
+            />
           </div>
 
           <p className="font-sans">

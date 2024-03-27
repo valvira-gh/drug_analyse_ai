@@ -12,6 +12,12 @@ export interface SearchResultTypes {
   dosage_forms_and_strengths: string[];
   abuse: string[];
   description: string[];
+  overdose: string[];
+  adverse_reactions: string[];
+  adverse_reactions_table: string[];
+  clinical_pharmalogy: string[];
+  boxed_warning: string[];
+
 }
 
 export interface SelectedFocusTypes {
