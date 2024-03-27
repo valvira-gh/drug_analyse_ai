@@ -1,6 +1,6 @@
 // SearchContext.tsx:
 "use client";
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useReducer } from "react";
 import {
   SearchContextTypes,
   SearchResultTypes,
@@ -23,6 +23,7 @@ const SearchProvider: React.FC<{ children: React.ReactNode }> = ({
     abuse: false,
     description: false,
   });
+  const [user, setUser] = useState<User[]>();
 
   return (
     <SearchContext.Provider
