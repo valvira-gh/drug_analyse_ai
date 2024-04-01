@@ -3,11 +3,8 @@ import Login from "./Login";
 
 const Sidebar: React.FC = () => {
   return (
-    <div className="flex flex-col">
-      <Login />
-      <h2 className="text-center text-2xl laptop:text-3xl laptop:font-bold m-4 text-sky-800">
-        Drug Search
-      </h2>
+    <div className="flex flex-col tablet:flex-row laptop:flex-col laptop:w-10/12 laptop:items-center laptop:mx-4">
+      {/* <Login /> */}
       <SearchForm />
     </div>
   );

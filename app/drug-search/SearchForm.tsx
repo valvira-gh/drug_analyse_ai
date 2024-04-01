@@ -31,6 +31,9 @@ const SearchForm: React.FC = () => {
       action={handleSearch}
       className="rounded-md border border-sky-200 flex flex-col px-6 py-4 m-4 w-10/12 laptop:w-max tablet:w-6/12"
     >
+      <h2 className="text-center text-2xl laptop:text-3xl laptop:font-bold m-4 text-sky-800">
+        Drug Search
+      </h2>
       <input
         type="text"
         name="search"
