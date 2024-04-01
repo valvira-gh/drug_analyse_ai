@@ -30,7 +30,7 @@ export default function RootLayout({
       <body className={`bg-sky-200`}>
         <header className="bg-sky-700 flex justify-between h-56 laptop:flex-col laptop:items-center laptop:h-56 laptop:w-screen">
           <Header />
-          <nav className="h-full w-full text-center flex justify-center">
+          <nav className="border h-full w-full text-center flex justify-center">
             <NavLinks />
           </nav>
         </header>

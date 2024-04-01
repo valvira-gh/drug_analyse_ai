@@ -23,7 +23,6 @@ const SearchProvider: React.FC<{ children: React.ReactNode }> = ({
     abuse: false,
     description: false,
   });
-  const [user, setUser] = useState<User[]>();
 
   return (
     <SearchContext.Provider
