@@ -3,7 +3,7 @@ import { Inter, Ubuntu, Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/app/components/ui/header/Header";
 import NavLinks from "@/app/components/ui/header/NavLinks";
-
+import { UserProvider } from "@/app/components/lib/contexts/UserContext";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "300", "400", "600", "700"],
@@ -28,13 +28,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`bg-sky-200`}>
-        <header className="bg-sky-700 flex justify-between h-56 laptop:flex-col laptop:items-center laptop:h-56 laptop:w-screen">
-          <Header />
-          <nav className="border h-full w-full text-center flex justify-center">
-            <NavLinks />
-          </nav>
-        </header>
-        <main className="min-h-svh">{children}</main>
+        <UserProvider>
+          <header className="bg-sky-700 flex justify-between h-56 laptop:flex-col laptop:items-center laptop:h-56 laptop:w-screen">
+            <Header />
+            <nav className="border h-full w-full text-center flex justify-center">
+              <NavLinks />
+            </nav>
+          </header>
+          <main className="min-h-svh">{children}</main>
+        </UserProvider>
       </body>
     </html>
   );
