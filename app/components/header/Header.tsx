@@ -1,4 +1,4 @@
-import NavLinks from "@/app/components/ui/header/NavLinks";
+import NavLinks from "@/app/components/header/NavLinks";
 
 const Header = () => {
   return (

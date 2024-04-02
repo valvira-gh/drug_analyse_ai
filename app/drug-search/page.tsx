@@ -1,8 +1,8 @@
 // drug-search/page.tsx:
 "use client";
 import React, { useContext } from "react";
-import { SearchContext } from "@/app/components/lib/contexts/SearchContext";
-import { SearchContextTypes } from "../components/lib/types";
+import { SearchContext } from "@/app/lib/contexts/SearchContext";
+import { SearchContextTypes } from "../lib/types";
 import Accordion from "./Accordion";
 
 const DisplayResults: React.FC<SearchContextTypes> = ({

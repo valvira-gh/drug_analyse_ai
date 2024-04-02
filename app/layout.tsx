@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Ubuntu, Poppins } from "next/font/google";
 import "./globals.css";
-import Header from "@/app/components/ui/header/Header";
-import NavLinks from "@/app/components/ui/header/NavLinks";
-import { UserProvider } from "@/app/components/lib/contexts/UserContext";
+import Header from "@/app/components/header/Header";
+import NavLinks from "@/app/components/header/NavLinks";
+import { UserProvider } from "@/app/lib/contexts/UserContext";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "300", "400", "600", "700"],

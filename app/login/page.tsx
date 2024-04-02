@@ -1,7 +1,11 @@
 import LoginForm from "@/app/components/ui/LoginForm";
 
 const LoginPage = () => {
-  // code later
+  const logIn = async (formData: FormData) => {
+    "use server";
+
+    console.log("click");
+  };
 
   return (
     <section className="mt-4 flex flex-col items-center">

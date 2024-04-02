@@ -1,6 +1,6 @@
 import Sidebar from "@/app/drug-search/Sidebar";
 import { Ubuntu } from "next/font/google";
-import SearchProvider from "@/app/components/lib/contexts/SearchContext";
+import SearchProvider from "@/app/lib/contexts/SearchContext";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],

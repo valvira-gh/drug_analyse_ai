@@ -1,3 +1,5 @@
+'use server'
+
 export async function searchDrugs(formData: FormData, setSearchResults: React.Dispatch<React.SetStateAction<any>>) {
 
   const searchQuery = formData.get("search");
@@ -11,6 +13,31 @@ export async function searchDrugs(formData: FormData, setSearchResults: React.Di
   const data = await response.json();
   setSearchResults(data)
   console.log(data.results)
+
+}
+
+// LOGGING IN:
+export async function logIn(
+  prevState: {
+    username: string; password: string;
+  },
+  formData: FormData,
+) {
+  const username = formData.get('username')
+  const password = formData.get('password')
+  console.log(username, password)
+
+  return { username: username, password: password }
+}
+
+
+
+
+
+
+
+
+
 
 
   // Käsitellään datasta otsikot erillisiksi
@@ -47,5 +74,3 @@ export async function searchDrugs(formData: FormData, setSearchResults: React.Di
 
 
 //   console.log(processedResults)
-
-}

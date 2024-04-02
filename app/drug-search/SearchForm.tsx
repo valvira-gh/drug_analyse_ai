@@ -1,9 +1,8 @@
 "use client";
-import { FDA_API_KEY } from "@/app/components/lib/openFDA_API";
-import { searchDrugs } from "@/app/components/lib/actions";
-import { SearchContext } from "@/app/components/lib/contexts/SearchContext";
+import { FDA_API_KEY } from "@/app/lib/openFDA_API";
+import { searchDrugs } from "@/app/utils/actions";
+import { SearchContext } from "@/app/lib/contexts/SearchContext";
 import { useContext } from "react";
-import { useFormStatus } from "react-dom";
 
 // Käytetään uutta tapaa käsitellä form-elementtejä käyttämällä
 // <form action> ominaisuutta ja hyödynnetään formData-objektia.
