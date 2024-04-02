@@ -1,9 +1,12 @@
+import LoginForm from "@/app/components/ui/LoginForm";
+
 const LoginPage = () => {
   // code later
 
   return (
-    <section className="border-2 border-sky-900">
-      <h3>Login Page</h3>
+    <section className="mt-4 flex flex-col items-center">
+      <h3 className="text-2xl text-sky-900">Login Page</h3>
+      <LoginForm />
     </section>
   );
 };
