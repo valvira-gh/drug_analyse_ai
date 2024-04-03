@@ -1,19 +1,18 @@
 "use client";
 import { ButtonPrimary } from "../components/ui/ButtonPrimary";
-import { useState } from "react";
+import React, { useState, useContext } from "react";
+import { DrugListContext } from "../lib/contexts/DrugListContext";
+import { DrugListContextTypes } from "@/app/lib/contexts/DrugListContext";
 
 const DrugListForm = () => {
-  const [drugList, setDrugList] = useState([]);
-  const [name, setName] = useState("");
+  const { setDrugList } = useContext(DrugListContext) as DrugListContextTypes;
+  const [newDrug, setNewDrug] = useState("");
 
   const submitDrug = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(drugList);
-
-    setDrugList((prevList) => [...prevList, name]);
+    setDrugList((prevList) => [...prevList, newDrug]);
+    setNewDrug("");
   };
-  console.log(name);
-  console.log(drugList);
 
   return (
     <form onSubmit={submitDrug}>
@@ -23,8 +22,8 @@ const DrugListForm = () => {
         </label>
         <input
           type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={newDrug}
+          onChange={(e) => setNewDrug(e.target.value)}
         />
       </div>
       <ButtonPrimary typeProp="submit" title="Add Drug" />

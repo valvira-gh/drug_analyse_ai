@@ -14,6 +14,7 @@ const DrugListProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [drugList, setDrugList] = useState<string[]>([]);
+  console.log("DrugListProvider", drugList);
 
   return (
     <DrugListContext.Provider value={{ drugList, setDrugList }}>
