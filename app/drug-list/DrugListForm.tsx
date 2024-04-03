@@ -2,7 +2,7 @@
 import { ButtonPrimary } from "../components/ui/ButtonPrimary";
 import { useState } from "react";
 
-const DrugList = () => {
+const DrugListForm = () => {
   const [drugList, setDrugList] = useState([]);
   const [name, setName] = useState("");
 
@@ -32,4 +32,4 @@ const DrugList = () => {
   );
 };
 
-export default DrugList;
+export default DrugListForm;
