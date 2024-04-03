@@ -1,11 +1,13 @@
 type InputProps = {
   nameProp: string;
   typeProp: string;
+  valueProp: string;
 };
 
 export const InputComponent: React.FC<InputProps> = ({
   nameProp,
   typeProp,
+  valueProp,
 }) => {
   return (
     <input

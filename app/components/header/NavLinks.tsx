@@ -6,7 +6,7 @@ export const links = [
   { id: 1, label: "Home", href: "/" },
   { id: 2, label: "About", href: "/about" },
   { id: 3, label: "Drug Search", href: "/drug-search" },
-  { id: 4, label: "SotkaNet", href: "/sotkanet" },
+  { id: 4, label: "Drug List", href: "/drug-list" },
 ];
 
 const NavLinks: React.FC = () => {
