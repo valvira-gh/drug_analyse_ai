@@ -1,9 +1,17 @@
+// DrugListContext.tsx
 "use client";
 import React, { createContext, useState } from "react";
 
+export type Drug = {
+  id: number;
+  name: string;
+  strength: string;
+  dosage: string;
+};
+
 export type DrugListContextTypes = {
-  drugList: string[];
-  setDrugList: React.Dispatch<React.SetStateAction<string[]>>;
+  drugList: Drug[];
+  setDrugList: React.Dispatch<React.SetStateAction<Drug[]>>;
 };
 
 export const DrugListContext = createContext<DrugListContextTypes | undefined>(
@@ -13,7 +21,7 @@ export const DrugListContext = createContext<DrugListContextTypes | undefined>(
 const DrugListProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [drugList, setDrugList] = useState<string[]>([]);
+  const [drugList, setDrugList] = useState<Drug[]>([]);
   console.log("DrugListProvider", drugList);
 
   return (
