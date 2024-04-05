@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { UserContext } from "@/app/lib/contexts/UserContext";
 import DisplayLoginOrRegister from "./components/ui/DisplayLoginOrRegister";
+import ClientHomePage from "./components/ClientHomePage";
 
 const Home: React.FC = () => {
   return (
-    <main className="bg-sky-200 border border-sky-900">
+    <main className="bg-sky-200">
       <div className=" flex flex-col items-center">
-        <h3 className=" m-4 text-4xl text-sky-900">Home Page</h3>
-        <div>
-          <Link className="text-2xl text-sky-700" href={"/login"}>
-            Login
-          </Link>
-        </div>
+        <h2 className=" m-4 text-xl text-sky-900">
+          Welcome to Drug Analyse AI!
+        </h2>
+
+        <ClientHomePage />
       </div>
     </main>
   );

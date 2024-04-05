@@ -1,9 +1,12 @@
 "use client";
 import React, { createContext, useState } from "react";
 
-type UserContextTypes = {};
+export type UserContextTypes = {
+  user: UserTypes;
+  setUser: React.Dispatch<React.SetStateAction<UserTypes>>;
+};
 
-type UserTypes = {
+export type UserTypes = {
   name: string;
   password: string;
   isLogged: boolean;
