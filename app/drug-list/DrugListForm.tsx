@@ -34,7 +34,7 @@ const DrugListForm = () => {
   return (
     <form
       onSubmit={submitDrug}
-      className="flex justify-evenly border border-sky-200 rounded-sm p-1 w-10/12 tablet:justify-evenly laptop:flex-col laptop:items-center "
+      className="flex justify-evenly border-2 border-sky-500 rounded-md p-4 w-10/12 tablet:justify-evenly laptop:flex-col laptop:items-center "
     >
       <div className="flex flex-col w-max p-2">
         <div className="m-1 flex flex-col items-center">
@@ -46,7 +46,7 @@ const DrugListForm = () => {
           </label>
           <input
             name="drug-name"
-            className="mt-1 text-lg tablet:text-xl p-1 tablet:p-2 bg-sky-100 text-sky-800 mobile:w-10/12 tablet:w-11/12 "
+            className="mt-1 border border-sky-600 bg-sky-100 rounded-sm text-lg tablet:text-xl p-1 tablet:p-2 bg-sky-100 text-sky-800 mobile:w-10/12 tablet:w-11/12 "
             type="text"
             value={newDrug.name}
             onChange={(e) => setNewDrug({ ...newDrug, name: e.target.value })}
@@ -63,7 +63,7 @@ const DrugListForm = () => {
             </label>
             <input
               name="drug-strenght"
-              className="mt-1 text-lg tablet:text-xl p-1 tablet:p-2 bg-sky-100 text-sky-800 w-16"
+              className="mt-1 border border-sky-600 bg-sky-100 rounded-sm text-lg tablet:text-xl p-1 tablet:p-2 bg-sky-100 text-sky-800 w-16"
               type="text"
               value={newDrug.strength}
               onChange={(e) =>
@@ -80,7 +80,7 @@ const DrugListForm = () => {
             </label>
             <input
               name="drug-dosage"
-              className="mt-1 text-lg tablet:text-xl p-1 tablet:p-2 bg-sky-100 text-sky-800 w-16"
+              className="mt-1 border border-sky-600 bg-sky-100 rounded-sm text-lg tablet:text-xl p-1 tablet:p-2 bg-sky-100 text-sky-800 w-16"
               type="text"
               value={newDrug.dosage}
               onChange={(e) =>

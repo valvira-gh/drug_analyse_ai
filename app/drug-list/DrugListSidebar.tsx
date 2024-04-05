@@ -2,7 +2,7 @@ import DrugListForm from "./DrugListForm";
 
 const DrugListSidebar = () => {
   return (
-    <div className="flex border border-red-500 w-full justify-center ">
+    <div className="flex w-full justify-center ">
       <DrugListForm />
     </div>
   );
