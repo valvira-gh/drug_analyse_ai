@@ -27,7 +27,7 @@ const DrugListPage = () => {
   const { drugList } = useContext(DrugListContext) as DrugListContextTypes;
   return (
     <section className="flex flex-col items-center">
-      <h3 className="text-lg text-sky-900">Drug List Page</h3>
+      {/* <h3 className="text-lg text-sky-900">Drug List Page</h3> */}
       {drugList.length === 0 ? <p>No drugs on the list.</p> : <DrugListTable />}
     </section>
   );

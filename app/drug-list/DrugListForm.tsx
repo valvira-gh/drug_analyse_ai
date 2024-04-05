@@ -63,7 +63,7 @@ const DrugListForm = () => {
             </label>
             <input
               name="drug-strenght"
-              className="mt-1 border border-sky-600 bg-sky-100 rounded-sm text-lg tablet:text-xl p-1 tablet:p-2 bg-sky-100 text-sky-800 w-16"
+              className="mt-1 border border-sky-600 bg-sky-100 rounded-sm text-lg tablet:text-xl p-1 tablet:p-2 bg-sky-100 text-sky-800 w-16 tablet:w-24"
               type="text"
               value={newDrug.strength}
               onChange={(e) =>
@@ -80,7 +80,7 @@ const DrugListForm = () => {
             </label>
             <input
               name="drug-dosage"
-              className="mt-1 border border-sky-600 bg-sky-100 rounded-sm text-lg tablet:text-xl p-1 tablet:p-2 bg-sky-100 text-sky-800 w-16"
+              className="mt-1 border border-sky-600 bg-sky-100 rounded-sm text-lg tablet:text-xl p-1 tablet:p-2 bg-sky-100 text-sky-800 w-16 tablet:w-24"
               type="text"
               value={newDrug.dosage}
               onChange={(e) =>
