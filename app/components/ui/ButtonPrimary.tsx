@@ -7,7 +7,7 @@ export const ButtonPrimary: React.FC<ButtonProps> = ({ typeProp, title }) => {
   return (
     <button
       type={typeProp}
-      className="border-2 border-sky-500 bg-sky-700 text-xl font-bold px-2 py-1 rounded-md mx-4"
+      className="border-2 border-sky-500 bg-sky-700 text-xl font-bold px-2 py-1 rounded-md m-2"
     >
       {title}
     </button>
