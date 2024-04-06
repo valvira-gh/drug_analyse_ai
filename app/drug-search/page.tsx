@@ -1,7 +1,7 @@
 // drug-search/page.tsx:
 "use client";
 import React, { useContext } from "react";
-import { SearchContext } from "@/app/lib/contexts/SearchContext";
+import { SearchContext } from "../lib/contexts/SearchContext";
 import { SearchContextTypes } from "../lib/types";
 import Accordion from "./Accordion";
 
@@ -37,20 +37,42 @@ const DisplayResults: React.FC<SearchContextTypes> = ({
               content={result.dosage_forms_and_strengths[0]}
             />
             <Accordion
-              title="6a. Adverse Reactions"
-              content={result.adverse_reactions[0]}
+              title="4. Contraindications"
+              content={result.contraindications[0]}
             />
-            {/* <Accordion
-              title="6b. Adverse Reactions (table)"
-              content={result.adverse_reactions_table[0]}
-            /> */}
-            {/* <Accordion
-              title="12. Clinical Pharmalogy"
-              content={result.clinical_pharmalogy[0]}
-            /> */}
+            <Accordion title="8.1 Pregnancy" content={result.pregnancy[0]} />
+
+            <Accordion title="9. Overdosage" content={result.overdosage[0]} />
             <Accordion
-              title="Boxed Warning"
-              content={result.boxed_warning[0]}
+              title="9.1 Controlled Substance"
+              content={result.controlled_substance[0]}
+            />
+
+            <Accordion title="9.2 Abuse" content={result.abuse[0]} />
+            <Accordion
+              title="12. Clinical Pharmacology"
+              content={result.clinical_pharmacology[0]}
+            />
+
+            <Accordion
+              title="13. Nonclinical Toxicology"
+              content={result.nonclinical_toxicology[0]}
+            />
+            <Accordion
+              title="13.1 Carcinogenesis"
+              content={
+                result
+                  .carcinogenesis_and_mutagenesis_and_impairment_of_fertility[0]
+              }
+            />
+            <Accordion
+              title="14. Clinical Studies"
+              content={result.clinical_studies[0]}
+            />
+            <Accordion title="15. References" content={result.references} />
+            <Accordion
+              title="16. How Supplied/Storage and Handling"
+              content={result.how_supplied[0]}
             />
           </div>
 

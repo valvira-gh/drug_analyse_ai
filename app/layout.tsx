@@ -3,7 +3,8 @@ import { Inter, Ubuntu, Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/app/components/header/Header";
 import NavLinks from "@/app/components/header/NavLinks";
-import { UserProvider } from "@/app/lib/contexts/UserContext";
+import SearchProvider from "./lib/contexts/SearchContext";
+import { UserProvider } from "./lib/contexts/UserContext";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "300", "400", "600", "700"],

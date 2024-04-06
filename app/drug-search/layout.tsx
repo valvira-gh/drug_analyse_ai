@@ -1,6 +1,8 @@
 import Sidebar from "@/app/drug-search/Sidebar";
 import { Ubuntu } from "next/font/google";
 import SearchProvider from "@/app/lib/contexts/SearchContext";
+import Error from "./error";
+import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
@@ -20,10 +22,11 @@ const SearchLayout = ({
         <aside className="bg-sky-300 w-full flex items-center justify-evenly laptop:justify-start laptop:w-1/4 laptop:h-screen laptop:flex-col laptop:items-center">
           <Sidebar />
         </aside>
-
-        <main className="bg-sky-200 h-screen w-screen flex-wrap p-8">
-          {children}
-        </main>
+        <ErrorBoundary fallback={(<Error />) as React.ReactNode}>
+          <main className="bg-sky-200 h-screen w-screen flex-wrap p-8">
+            {children}
+          </main>
+        </ErrorBoundary>
       </div>
     </SearchProvider>
   );

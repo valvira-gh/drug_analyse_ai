@@ -1,15 +1,14 @@
 "use client";
-import { FDA_API_KEY } from "@/app/lib/openFDA_API";
-import { searchDrugs } from "@/app/utils/actions";
-import { SearchContext } from "@/app/lib/contexts/SearchContext";
+import { searchDrugs } from "../utils/actions";
+import { SearchContext } from "../lib/contexts/SearchContext";
 import { useContext } from "react";
+import { useFormStatus } from "react-dom";
 
 // Käytetään uutta tapaa käsitellä form-elementtejä käyttämällä
 // <form action> ominaisuutta ja hyödynnetään formData-objektia.
 // Reactissa <form>-elementti on aina client-komponentti, mutta
 // käytämme "use server" merkintää ja näin voimme luoda asynkronisen
 // fetch-pyynnön palvelimelle käyttämällä formData.get()-metodia.
-const KEYS = FDA_API_KEY;
 
 const SearchForm: React.FC = () => {
   const context = useContext(SearchContext);
@@ -28,22 +27,13 @@ const SearchForm: React.FC = () => {
   return (
     <form
       action={handleSearch}
-      className="rounded-md border border-sky-200 flex flex-col px-6 py-4 m-4 w-10/12 laptop:w-max tablet:w-6/12"
+      className="rounded-md border border-sky-200 flex flex-col px-8 py-6 m-4 w-10/12 laptop:w-max tablet:w-6/12"
     >
-      <h2 className="text-center text-2xl laptop:text-3xl laptop:font-bold m-4 text-sky-800">
-        Drug Search
-      </h2>
       <input
         type="text"
         name="search"
         className="text-lg text-sky-900 p-2 mt-2 border-2 rounded-sm border-sky-500 "
       />
-      <div className=" h-12 flex items-center">
-        <label htmlFor="abuse" className="text-xl text-sky-900">
-          Abuse?
-        </label>
-        <input type="checkbox" name="abuse" className=" h-10 m-2" />
-      </div>
 
       <button
         type="submit"
