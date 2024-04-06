@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { UserContext } from "@/app/lib/contexts/UserContext";
-import DisplayLoginOrRegister from "./components/ui/DisplayLoginOrRegister";
 import ClientHomePage from "./components/ClientHomePage";
 
 const Home: React.FC = () => {
