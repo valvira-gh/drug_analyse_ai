@@ -13,11 +13,11 @@ export type UserTypes = {
 
 export interface SearchResultTypes {
   openfda: {
-    spl_id: string[];
-    brand_name: string[];
-    generic_name: string[];
-    description: string[];
-    manufacturer_name: string[];
+    spl_id: string | string[];
+    brand_name: string[] | string;
+    generic_name: string[] | string;
+    description: string[] | string;
+    manufacturer_name: string[] | string;
   };
   indications_and_usage: string[];
   dosage_and_administration: string[];
