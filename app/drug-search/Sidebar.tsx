@@ -1,5 +1,4 @@
 import SearchForm from "@/app/drug-search/SearchForm";
-import Login from "./Login";
 
 const Sidebar: React.FC = () => {
   return (
