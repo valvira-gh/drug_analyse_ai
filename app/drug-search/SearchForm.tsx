@@ -33,8 +33,8 @@ const SearchForm: React.FC = () => {
         type="text"
         name="search"
         className="text-lg text-sky-900 p-2 mt-2 border-2 rounded-sm border-sky-500 "
-      />
-
+      />{" "}
+      <p className="text-sky-800 m-2">E.g. "Aspirin"</p>
       <button
         type="submit"
         className="font-bold border border-sky-700 rounded-md mt-2 bg-sky-600 text-sky-100 text-xl px-1 py-1 "
