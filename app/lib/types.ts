@@ -1,4 +1,16 @@
 // types.ts:
+
+export type UserContextTypes = {
+  user: UserTypes;
+  setUser: React.Dispatch<React.SetStateAction<UserTypes>>;
+};
+
+export type UserTypes = {
+  name: string;
+  password: string;
+  isLogged: boolean;
+};
+
 export interface SearchResultTypes {
   openfda: {
     spl_id: string[];
@@ -37,8 +49,6 @@ export interface SearchResultTypes {
   clinical_pharmacology: string[];
   carcinogenesis_and_mutagenesis_and_impairment_of_fertility: string[];
   pediatric_use: string[];
-
-
 }
 
 export interface SelectedFocusTypes {
@@ -48,7 +58,9 @@ export interface SelectedFocusTypes {
 
 export type SearchContextTypes = {
   searchResults: { results: SearchResultTypes[] } | undefined;
-  setSearchResults: React.Dispatch<React.SetStateAction<{ results: SearchResultTypes[] } | undefined>>;
+  setSearchResults: React.Dispatch<
+    React.SetStateAction<{ results: SearchResultTypes[] } | undefined>
+  >;
   searchPerformed: boolean;
   setSearchPerformed: React.Dispatch<React.SetStateAction<boolean>>;
   selectedFocus: SelectedFocusTypes;

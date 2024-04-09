@@ -9,14 +9,20 @@ const config: Config = {
   ],
   theme: {
     screens: {
-      'mobile': '400px',
-      'tablet': '640px',
-      'laptop': '1024px',
-      'desktop': '1280px',
+      mobile: "400px",
+      tablet: "640px",
+      laptop: "1024px",
+      desktop: "1280px",
     },
-    extend: {
-
+    fontFamily: {
+      sans: ["ui-sans-serif", "system-ui"],
+      serif: ["ui-serif", "Georgia"],
+      mono: ["monospace", "SFMono-Regular"],
+      poppins: ["Poppins", "sans-serif"],
+      inter: ["Inter", "sans-serif"],
+      ubuntu: ["Ubuntu", "sans-serif"],
     },
+    extend: {},
   },
   plugins: [],
 };

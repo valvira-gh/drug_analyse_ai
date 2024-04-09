@@ -1,17 +1,8 @@
 "use client";
 import React, { createContext, useState } from "react";
+import { UserContextTypes, UserTypes } from "../types";
 
-export type UserContextTypes = {
-  user: UserTypes;
-  setUser: React.Dispatch<React.SetStateAction<UserTypes>>;
-};
-
-export type UserTypes = {
-  name: string;
-  password: string;
-  isLogged: boolean;
-};
-
+// Context:
 export const UserContext = createContext<UserContextTypes | undefined>(
   undefined
 );

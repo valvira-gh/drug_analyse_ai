@@ -1,11 +1,7 @@
 "use client";
-import {
-  UserContext,
-  UserContextTypes,
-  UserTypes,
-} from "../lib/contexts/UserContext";
+import { UserContext } from "@/app/lib/contexts/UserContext";
+import { UserContextTypes } from "@/app/lib/types";
 import { useContext, useState } from "react";
-import { ButtonPrimary } from "../components/ui/ButtonPrimary";
 import { useRouter } from "next/navigation";
 
 const LoginForm: React.FC = () => {

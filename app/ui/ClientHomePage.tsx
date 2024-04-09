@@ -1,5 +1,6 @@
 "use client";
-import { UserContext, UserContextTypes } from "../lib/contexts/UserContext";
+import { UserContext } from "@/app/lib/contexts/UserContext";
+import { UserContextTypes } from "@/app/lib/types";
 import { useContext } from "react";
 import Link from "next/link";
 
