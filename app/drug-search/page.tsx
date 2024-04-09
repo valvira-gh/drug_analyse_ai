@@ -42,17 +42,23 @@ const DisplayResults: React.FC<SearchContextTypes> = ({
           <h3 className="text-xl p-0.5">({result.openfda.generic_name[0]})</h3>
 
           <div className="">
-            {Object.entries(fieldsToDisplay).map(([field, title]) => {
+            <Accordion
+              title="1. Indications and Usage"
+              content={result.indications_and_usage.join(", ")}
+            />
+            {/* {Object.entries(fieldsToDisplay).map(([field, title]) => {
               if (result[field] && result[field].length > 0) {
+
+                let content = result[field];
+                if (Array.isArray(content)) {
+                  content = content.join(", ");
+                }
+
                 return (
-                  <Accordion
-                    key={field}
-                    title={title}
-                    content={result[field]}
-                  />
+                  <Accordion key={field} title={title} content={content} />
                 );
               }
-            })}
+            })} */}
           </div>
 
           <p className="font-sans">
