@@ -13,9 +13,27 @@ const DisplayResults: React.FC<SearchContextTypes> = ({
     return <div>Ei tuloksia.</div>;
   }
 
+  const fieldsToDisplay = {
+    indications_and_usage: "1. Indications and Usage",
+    dosage_and_administration: "2. Dosage and Administration",
+    dosage_forms_and_strengths: "3. Dosage Forms and Strengths",
+    contraindications: "4. Contraindications",
+    pregnancy: "8.1 Pregnancy",
+    overdosage: "9. Overdosage",
+    controlled_substance: "9.1 Controlled Substance",
+    abuse: "9.2 Abuse",
+    clinical_pharmacology: "12. Clinical Pharmacology",
+    nonclinical_toxicology: "13. Nonclinical Toxicology",
+    carcinogenesis_and_mutagenesis_and_impairment_of_fertility:
+      "13.1 Carcinogenesis",
+    clinical_studies: "14. Clinical Studies",
+    references: "15. References",
+    how_supplied: "16. How Supplied/Storage and Handling",
+  };
+
   return (
     <div className="flex ">
-      {searchResults.results.map((result) => (
+      {searchResults?.results?.map((result) => (
         <div
           className="flex flex-col items-center"
           key={result.openfda.spl_id[0]}
@@ -24,56 +42,17 @@ const DisplayResults: React.FC<SearchContextTypes> = ({
           <h3 className="text-xl p-0.5">({result.openfda.generic_name[0]})</h3>
 
           <div className="">
-            <Accordion
-              title="1. Indications and Usage"
-              content={result.indications_and_usage[0]}
-            />
-            <Accordion
-              title="2. Dosage and Administration"
-              content={result.dosage_and_administration[0]}
-            />
-            <Accordion
-              title="3. Dosage Forms and Strengths"
-              content={result.dosage_forms_and_strengths[0]}
-            />
-            <Accordion
-              title="4. Contraindications"
-              content={result.contraindications[0]}
-            />
-            <Accordion title="8.1 Pregnancy" content={result.pregnancy[0]} />
-
-            <Accordion title="9. Overdosage" content={result.overdosage[0]} />
-            <Accordion
-              title="9.1 Controlled Substance"
-              content={result.controlled_substance[0]}
-            />
-
-            <Accordion title="9.2 Abuse" content={result.abuse[0]} />
-            <Accordion
-              title="12. Clinical Pharmacology"
-              content={result.clinical_pharmacology[0]}
-            />
-
-            <Accordion
-              title="13. Nonclinical Toxicology"
-              content={result.nonclinical_toxicology[0]}
-            />
-            <Accordion
-              title="13.1 Carcinogenesis"
-              content={
-                result
-                  .carcinogenesis_and_mutagenesis_and_impairment_of_fertility[0]
+            {Object.entries(fieldsToDisplay).map(([field, title]) => {
+              if (result[field] && result[field].length > 0) {
+                return (
+                  <Accordion
+                    key={field}
+                    title={title}
+                    content={result[field]}
+                  />
+                );
               }
-            />
-            <Accordion
-              title="14. Clinical Studies"
-              content={result.clinical_studies[0]}
-            />
-            <Accordion title="15. References" content={result.references} />
-            <Accordion
-              title="16. How Supplied/Storage and Handling"
-              content={result.how_supplied[0]}
-            />
+            })}
           </div>
 
           <p className="font-sans">
