@@ -1,5 +1,4 @@
 "use client";
-import { ButtonPrimary } from "../components/ui/ButtonPrimary";
 import React, { useState, useContext } from "react";
 import { DrugListContext } from "../lib/contexts/DrugListContext";
 import { DrugListContextTypes } from "@/app/lib/contexts/DrugListContext";
