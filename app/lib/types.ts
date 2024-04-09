@@ -49,8 +49,8 @@ export interface SearchResultTypes {
   clinical_pharmacology: string[];
   carcinogenesis_and_mutagenesis_and_impairment_of_fertility: string[];
   pediatric_use: string[];
-  [key: string]: string[] | string |
-}
+  [key: string]: string[] | string;
+} // Add the closing curly brace here
 
 export interface SelectedFocusTypes {
   abuse: boolean;
