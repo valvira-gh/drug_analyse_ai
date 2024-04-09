@@ -27,7 +27,7 @@ const SearchForm: React.FC = () => {
   return (
     <form
       action={handleSearch}
-      className="rounded-md border border-sky-200 flex flex-col px-8 py-6 m-4 w-10/12 laptop:w-max tablet:w-6/12"
+      className="rounded-md text-center border border-sky-200 w-full text-center flex flex-col px-8 py-6 my-4 laptop:w-max tablet:w-6/12"
     >
       <input
         type="text"
