@@ -1,3 +1,6 @@
+"use server";
+import { createUser } from "@/app/api/register-user/route";
+
 export async function searchDrugs(
   formData: FormData,
   setSearchResults: React.Dispatch<React.SetStateAction<any>>
@@ -22,4 +25,12 @@ export async function submitRegisterUser(formData: FormData) {
 
   console.log("Toimii:");
   console.log(username, email, password);
+}
+
+export async function register(formData: FormData) {
+  let username = formData.get("username") as string;
+  let email = formData.get("email") as string;
+  let password = formData.get("password") as string;
+
+  await createUser(username, email, password);
 }

@@ -1,21 +1,39 @@
-import { type NextRequest } from "next/server";
-import { sql } from "@vercel/postgres";
-import { NextResponse } from "next/server";
-import { createUser } from "../db";
+"use client";
+import { createUser } from "@/app/api/register-user/route";
+import { register } from "@/app/utils/actions";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const RegisterUserForm: React.FC = () => {
-  async function register(formData: FormData) {
-    "use server";
-    let username = formData.get("username") as string;
-    let email = formData.get("email") as string;
-    let password = formData.get("password") as string;
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    await createUser(username, email, password);
-  }
+  const router = useRouter();
+
+  const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUsername(event.target.value);
+  };
+
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    register(new FormData(event.currentTarget));
+    router.push("/login");
+  };
+
+  console.log(username, email, password);
 
   return (
     <form
-      action={register}
+      onSubmit={handleSubmit}
       className="flex flex-col items-center border-2 border-sky-700 rounded-md p-4"
     >
       <div className="flex flex-col items-center m-2">
@@ -23,6 +41,7 @@ const RegisterUserForm: React.FC = () => {
           Username:
         </label>
         <input
+          onChange={handleUsernameChange}
           type="text"
           name="username"
           id="username"
@@ -34,6 +53,7 @@ const RegisterUserForm: React.FC = () => {
           Email:
         </label>
         <input
+          onChange={handleEmailChange}
           type="email"
           name="email"
           id="email"
@@ -45,6 +65,7 @@ const RegisterUserForm: React.FC = () => {
           Password:
         </label>
         <input
+          onChange={handlePasswordChange}
           type="password"
           name="password"
           id="password"
