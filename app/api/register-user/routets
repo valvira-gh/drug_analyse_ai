@@ -1,0 +1,35 @@
+import { sql } from "@vercel/postgres";
+import { NextResponse } from "next/server";
+import { hash } from "bcrypt";
+
+export async function POST(request: Request) {
+  const { username, email, password } = await request.json();
+  const hashedPassword = await hashPassword(password);
+
+  try {
+    // Create the Users table if it doesn't exist
+    await sql`
+      CREATE TABLE IF NOT EXISTS Users (
+        id SERIAL PRIMARY KEY,
+        username VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL,
+        password VARCHAR(255) NOT NULL
+      );
+    `;
+
+    // Insert the new user into the Users table
+    const result = await sql`
+      INSERT INTO Users (username, email, password)
+      VALUES (${username}, ${email}, ${hashedPassword});
+    `;
+
+    return NextResponse.json({ result }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ error }, { status: 500 });
+  }
+}
+
+async function hashPassword(password: string): Promise<string> {
+  const hashedPassword = await hash(password, 10);
+  return hashedPassword;
+}
