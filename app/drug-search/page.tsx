@@ -46,6 +46,10 @@ const DisplayResults: React.FC<SearchContextTypes> = ({
               title="1. Indications and Usage"
               content={result.indications_and_usage.join(", ")}
             />
+            <Accordion
+              title="2. Dosage and Administration"
+              content={result.dosage_and_administration.join(", ")}
+            />
             {/* {Object.entries(fieldsToDisplay).map(([field, title]) => {
               if (result[field] && result[field].length > 0) {
 
