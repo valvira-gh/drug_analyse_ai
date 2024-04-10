@@ -1,31 +1,21 @@
 import { type NextRequest } from "next/server";
+import { sql } from "@vercel/postgres";
+import { NextResponse } from "next/server";
+import { createUser } from "../db";
 
 const RegisterUserForm: React.FC = () => {
-  async function submitRegisterUser(formData: FormData) {
+  async function register(formData: FormData) {
     "use server";
-    const rawFormData = {
-      username: formData.get("username"),
-      email: formData.get("email"),
-      password: formData.get("password"),
-    };
-    const response = await fetch("/api/register-user", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(rawFormData),
-    });
+    let username = formData.get("username") as string;
+    let email = formData.get("email") as string;
+    let password = formData.get("password") as string;
 
-    if (response.ok) {
-      console.log("User registered successfully");
-    } else {
-      console.error("User registration failed");
-    }
+    await createUser(username, email, password);
   }
 
   return (
     <form
-      action={submitRegisterUser}
+      action={register}
       className="flex flex-col items-center border-2 border-sky-700 rounded-md p-4"
     >
       <div className="flex flex-col items-center m-2">
