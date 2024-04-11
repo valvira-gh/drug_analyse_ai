@@ -2,7 +2,7 @@ import SearchForm from "@/app/drug-search/SearchForm";
 
 const Sidebar: React.FC = () => {
   return (
-    <div className="flex flex-col tablet:flex-row laptop:flex-col laptop:w-10/12 laptop:items-center laptop:mx-4">
+    <div className="flex flex-col  w-full items-center  laptop:items-center laptop:mx-4">
       {/* <Login /> */}
       <SearchForm />
     </div>
