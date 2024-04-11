@@ -1,10 +1,12 @@
 "use client";
 import { createUser } from "@/app/api/register-user/route";
 import { register } from "@/app/utils/actions";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { User } from "@/app/lib/types";
 
 const RegisterUserForm: React.FC = () => {
+  const [data, setData] = useState<User[]>([]);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

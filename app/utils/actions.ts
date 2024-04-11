@@ -18,15 +18,6 @@ export async function searchDrugs(
   console.log(data.results);
 }
 
-export async function submitRegisterUser(formData: FormData) {
-  const username = formData.get("username");
-  const email = formData.get("email");
-  const password = formData.get("password");
-
-  console.log("Toimii:");
-  console.log(username, email, password);
-}
-
 export async function register(formData: FormData) {
   let username = formData.get("username") as string;
   let email = formData.get("email") as string;

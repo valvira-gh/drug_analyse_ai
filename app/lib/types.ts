@@ -1,4 +1,28 @@
 // types.ts:
+import {
+  ColumnType,
+  Generated,
+  Insertable,
+  JSONColumnType,
+  Selectable,
+  Updateable,
+} from "kysely";
+
+// Kysely.dev types:
+export interface Database {
+  Users: UserTable;
+}
+
+export interface UserTable {
+  id: Generated<number>;
+  username: string;
+  email: string;
+  password: string;
+}
+
+// Kysely.dev wrappers:
+export type User = Selectable<UserTable>;
+export type NewUser = Insertable<UserTable>;
 
 export type UserContextTypes = {
   user: UserTypes;
