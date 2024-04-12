@@ -25,7 +25,7 @@ const RegisterUserForm: React.FC = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     register(new FormData(event.currentTarget));
-    router.push("/login");
+    router.push("/register-user/success");
   };
 
   console.log(username, email, password);
