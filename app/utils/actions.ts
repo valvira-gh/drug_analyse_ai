@@ -1,5 +1,4 @@
 "use server";
-import { createUser } from "@/app/api/register-user/route";
 
 export async function searchDrugs(
   formData: FormData,
@@ -16,21 +15,4 @@ export async function searchDrugs(
   const data = await response.json();
   setSearchResults(data);
   console.log(data.results);
-}
-
-export async function submitRegisterUser(formData: FormData) {
-  const username = formData.get("username");
-  const email = formData.get("email");
-  const password = formData.get("password");
-
-  console.log("Toimii:");
-  console.log(username, email, password);
-}
-
-export async function register(formData: FormData) {
-  let username = formData.get("username") as string;
-  let email = formData.get("email") as string;
-  let password = formData.get("password") as string;
-
-  await createUser(username, email, password);
 }

@@ -1,6 +1,5 @@
 "use client";
-import { createUser } from "@/app/api/register-user/route";
-import { register } from "@/app/utils/actions";
+import { register } from "@/app/register-user/utils";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 

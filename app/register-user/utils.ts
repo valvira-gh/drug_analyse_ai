@@ -1,6 +1,14 @@
 import { sql } from "@vercel/postgres";
 import { NextResponse } from "next/server";
 
+export async function register(formData: FormData) {
+  let username = formData.get("username") as string;
+  let email = formData.get("email") as string;
+  let password = formData.get("password") as string;
+
+  await createUser(username, email, password);
+}
+
 export async function createUser(
   username: string,
   email: string,
